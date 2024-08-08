@@ -11,12 +11,12 @@ Ensure you have the following installed:
 - **Java Development Kit (JDK):** 17
 - **Gradle:** 7.x (or use the Gradle wrapper included in the project)
 
-## Installation
+## Collect backend code coverage after E2E tests execution
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-repo/backend-code-coverage-example.git
+    git clone https://github.com/Azzee-efil/Backend-Code-Coverage-Example.git
     cd backend-code-coverage-example
     ```
 
@@ -26,17 +26,14 @@ Ensure you have the following installed:
     ./gradlew build
     ```
 
-3. Run the application:
+3. Run the instrumented application:
 
     ```bash
-    ./gradlew run
+    ./gradlew runInstrumented
     ```
 
-4. Execute end-to-end tests (you may need to adjust this step according to your specific E2E setup):
+4. Interact with the UI
 
-    ```bash
-    ./gradlew test
-    ```
 
 5. Generate the Jacoco code coverage report:
 
@@ -49,4 +46,4 @@ Ensure you have the following installed:
 The Jacoco coverage report will be generated in both HTML and XML formats. You can find the HTML report in the following location:
 
 ```plaintext
-build/reports/jacoco/test/html/index.html
+build/jacocoHtml/index.html

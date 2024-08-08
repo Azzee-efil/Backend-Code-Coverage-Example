@@ -9,14 +9,6 @@ jacoco {
     toolVersion = "0.8.8"
 }
 
-jacocoTestReport {
-    reports {
-        xml.required = true
-        csv.required = false
-        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
-    }
-}
-
 version = "0.1"
 group = "com.upwork"
 
@@ -53,13 +45,14 @@ micronaut {
 task runInstrumented(type: JavaExec) {
     mainClass.set('com.upwork.Application')
     classpath = sourceSets.main.runtimeClasspath
-    jvmArgs = ["-javaagent:${projectDir}/libs/jacocoagent.jar=destfile=${buildDir}/jacoco/jacoco-it.exec"]
+    jvmArgs = ["-javaagent:${projectDir}/libs/jacocoagent.jar=destfile=${buildDir}/jacoco/jacoco-e2e.exec"]
 }
 
 jacocoTestReport {
-    executionData fileTree(dir: "${buildDir}/jacoco", include: "jacoco-it.exec")
+    executionData fileTree(dir: "${buildDir}/jacoco", include: "jacoco-e2e.exec")
     reports {
         xml.required = true
         html.required = true
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
 }
