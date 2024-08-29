@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CsvCatalogSyncAgent.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">petpr</a> &gt; <a href="index.source.html" class="el_package">com.upwork.sync.csv.agents</a> &gt; <span class="el_source">CsvCatalogSyncAgent.java</span></div><h1>CsvCatalogSyncAgent.java</h1><pre class="source lang-java linenums">package com.upwork.sync.csv.agents;
+
+import com.upwork.sync.SyncTypes;
+import com.upwork.sync.csv.services.CsvHttpClient;
+import com.upwork.sync.facade.SyncAgent;
+import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
+import org.reactivestreams.Publisher;
+
+@Singleton
+<span class="fc" id="L11">public class CsvCatalogSyncAgent implements SyncAgent {</span>
+
+    private static final String API_URL = &quot;https://some-csv-api&quot;;
+
+    @Inject
+    private CsvHttpClient csvHttpClient;
+
+    @Override
+    public Publisher&lt;?&gt; doSync() {
+<span class="fc" id="L20">        return csvHttpClient.fetchData(API_URL);</span>
+    }
+
+    @Override
+    public String getSupportedSubType() {
+<span class="fc" id="L25">        return SyncTypes.CSV_CATALOG_SYNC_AGENT;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
