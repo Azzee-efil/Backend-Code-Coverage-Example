@@ -47,3 +47,8 @@ The Jacoco coverage report will be generated in both HTML and XML formats. You c
 
 ```plaintext
 build/jacocoHtml/index.html
+```
+
+## Example Coverage Report
+
+You can view an example of the generated coverage report [here](https://azzee-efil.github.io/Backend-Code-Coverage-Example/coverage_report_example/index.html).
